@@ -1,0 +1,176 @@
+.title {
+    color: #094E39;
+
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: "Libre Baskerville";
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    display: flex;
+    width: 450px;
+    height: 100px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-bottom: -20px;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.sub-title {
+    color: #094E39;
+
+    text-align: center;
+    font-family: "Libre Baskerville";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    display: flex;
+    width: 346px;
+    height: 129px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+
+    margin-top: -20px;
+}
+
+.top-banner-thing {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-cluster {
+    margin-left: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.thing-below-main-title {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    max-width: 70px;
+    margin-top: -40px;
+    margin-left: -20px;
+}
+
+.logo {
+    margin-top: -50px;
+    max-block-size: 145px;
+    justify-self: right;
+}
+
+.right-most-thing {
+    display: flex;
+    align-items: center;
+    
+}
+
+.login-button {
+    background: #094E39;
+    display: flex;
+    width: 157px;
+    height: 72px;
+    padding: 20px 39px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #FFF;
+
+    text-align: center;
+    font-family: "Libre Baskerville";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+
+    margin-left: 30px;
+    margin-bottom: 30px;
+    margin-right: 50px;
+}
+
+.navbar {
+    margin-top: -20px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #094E39;
+    list-style-type: none;
+}
+
+.nav-item {
+    color: #FFF;
+
+    text-align: center;
+    font-family: "Libre Baskerville";
+    font-size: 30px;
+}
+
+.nav-item-active {
+    color: #00FF75;
+
+    text-align: center;
+    font-family: "Libre Baskerville";
+    font-size: 30px;
+}
+
+.dropdown {
+    border: 1px solid grey;
+    position: fixed;
+    z-index: 2;
+    border-radius: 5px;
+    width: 230px;
+    box-shadow: 5px 5px 5px lightgrey;
+}
+
+.lang-button {
+    border: none;
+    width: 99%;
+    font-family: "Libre Baskerville";
+    font-size: large;
+    height: 30px;
+
+}
+
+.lang-button-active {
+    background-color: gray;
+    border: none;
+    width: 99%;
+    height: 30px;
+    font-family: "Libre Baskerville";
+    font-size: large;
+}
+
+.lang-changer {
+    color: #FFF;
+    background-color: #094E39;
+    border: none;
+    text-decoration-line: underline;
+
+    text-align: center;
+    font-family: "Libre Baskerville";
+    font-size: 30px;
+}
+
+.list-inside-dropdown {
+    list-style-type:unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    margin-left: -38px;
+    
+}
+
+
