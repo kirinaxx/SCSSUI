@@ -1,0 +1,68 @@
+/* Resetting margin and padding for body and html elements mainly to get rid of white border around webpage */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Importing necessary background image */
+.login-page {
+    height: 100vh;
+    background-image: url('../assets/LoginBGImage.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* Prevents page scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for frosted glass effect */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 15px;
+    padding: 40px 20px;
+    box-shadow: 0 8px 32px 0 rgba(73, 69, 7, 0.37);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    width: 400px; 
+    height: 500px; 
+    position: absolute;
+    right: 100px; /* distance from right side */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Login button styling */
+.login-button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #094E39;
+    color: #F5FA0E;
+    border: none;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Username and password input field styling */
+.username-input,
+.password-input {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 25px;
+    width: calc(100% - 20px); /* Adjust width */
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Styling for circular logo image */
+.logo-image {
+    width: 150px; /* Adjust the size of the circular image */
+    height: 150px; /* Adjust the size of the circular image */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+    margin-bottom: 20px; /* Add some spacing between the logo and the text */
+}
