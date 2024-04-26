@@ -1,0 +1,130 @@
+/* Resetting margin and padding for body and html elements mainly to get rid of white border around webpage */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Importing necessary background image */
+.login-page {
+    height: 100vh;
+    background-image: url('../assets/LoginBGImage.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* Prevents page scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Required for positioning the back button */
+}
+
+/* Styling for frosted glass effect */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 15px;
+    padding: 40px 20px;
+    box-shadow: 0 8px 32px 0 rgba(73, 69, 7, 0.37);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    width: 400px; 
+    height: 500px; 
+    position: absolute;
+    right: 100px; /* distance from right side */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: height 0.5s ease; /* Smooth transition */
+}
+
+/* Styling for registering state */
+.login-container.registering {
+    height: 600px; /* Expanded height */
+}
+
+/* Login button styling */
+.login-button {
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #094E39;
+    color: #F5FA0E;
+    border: none;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Username and password input field styling */
+.username-input,
+.password-input,
+.confirm-username-input,
+.confirm-password-input {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 25px;
+    width: calc(100% - 20px); /* Adjust width */
+    box-sizing: border-box;
+    font-size: 16px;
+    opacity: 1; /* Initially visible */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+/* Hide additional text fields initially */
+.confirm-username-input,
+.confirm-password-input {
+    opacity: 0;
+}
+
+/* Show additional text fields when registering */
+.registering .confirm-username-input,
+.registering .confirm-password-input {
+    opacity: 1;
+}
+
+/* Styling for circular logo image */
+.logo-image {
+    width: 150px; /* Adjust the size of the circular image */
+    height: 150px; /* Adjust the size of the circular image */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+    margin-bottom: 20px; /* Add some spacing between the logo and the text */
+}
+
+/* Styling for back button */
+.back-button {
+    position: absolute;
+    top: 20px; /* Adjust distance from top */
+    left: 20px; /* Adjust distance from left */
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White color for text */
+    border: none;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Styling for back button hover */
+.back-button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+/* Styling for text container */
+.text-container {
+    text-align: center; /* Center align text */
+    color: #333; /* Darker gray color for better readability */
+}
+
+/* Styling for register link */
+.register-link {
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Blue color */
+    cursor: pointer;
+}
+
+/* Styling for register link hover */
+.register-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
