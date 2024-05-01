@@ -1,10 +1,13 @@
 //useOutletContext is going to be how we receive state variables from parent components
 import { useOutletContext } from "react-router-dom";
 import "./FAQ.css";
+import translate from "./TranslationStation";
 
-function FAQ() {
+
+function FAQ(props) {
 
    // const { stateVariable1, stateVariable2 } = useOutletContext();
+   const language = props.language[0]
     
     return(
         <div className="faq-container">
@@ -46,6 +49,7 @@ function FAQ() {
             </div>
         </div>
     </div>
+
     );
 }
 

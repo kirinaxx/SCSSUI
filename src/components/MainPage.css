@@ -124,3 +124,53 @@
     font-family: "Libre Baskerville";
     font-size: 30px;
 }
+
+.dropdown {
+    border: 1px solid grey;
+    position: fixed;
+    z-index: 2;
+    border-radius: 5px;
+    width: 230px;
+    box-shadow: 5px 5px 5px lightgrey;
+}
+
+.lang-button {
+    border: none;
+    width: 99%;
+    font-family: "Libre Baskerville";
+    font-size: large;
+    height: 30px;
+
+}
+
+.lang-button-active {
+    background-color: gray;
+    border: none;
+    width: 99%;
+    height: 30px;
+    font-family: "Libre Baskerville";
+    font-size: large;
+}
+
+.lang-changer {
+    color: #FFF;
+    background-color: #094E39;
+    border: none;
+    text-decoration-line: underline;
+
+    text-align: center;
+    font-family: "Libre Baskerville";
+    font-size: 30px;
+}
+
+.list-inside-dropdown {
+    list-style-type:unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    margin-left: -38px;
+    
+}
+
+
