@@ -127,7 +127,7 @@
 
 .dropdown {
     border: 1px solid grey;
-    position: fixed;
+    position: absolute;
     z-index: 2;
     border-radius: 5px;
     width: 230px;
