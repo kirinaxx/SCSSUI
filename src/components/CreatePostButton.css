@@ -1,0 +1,20 @@
+/* CreatePostButton.css */
+.create-post-button {
+    border-radius: 10px;
+    padding: 20px 60px; /* Increase padding to increase button size */
+    cursor: pointer;
+    background-color: #094E39; /* Same color as the login button */
+    color: #F5FA0E; /* Same text color as the login button */
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: block; /* Make the button a block element */
+    margin: 0 auto; /* Center the button horizontally */
+    font-size: 18px; /* Change the font size */
+    font-weight: bold; /* Make the text bold */
+}
+
+
+.create-post-button:hover {
+    background-color: #04281d; /* Darker blue color on hover */
+}
