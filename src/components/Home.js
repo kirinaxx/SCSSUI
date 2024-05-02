@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import translate from "./TranslationStation";
 import React from "react";
 import horizontalLogo from "../assets/horizontalSacStateLogo.png"
+import SearchBar from "./SearchBar";
 import Post from "./Post";
 import './Home.css'
 import CreatePostButton from "./CreatePostButton";
@@ -51,6 +52,7 @@ function Home(props) {
                 <div className="GroupBar" style={{width: "20%", display:"table-cell"}}>
                 <p>I *think* the groups tab will go here in the future maybe? idk how we are gonna style it</p>
             </div>
+            <SearchBar />
             <div style={{marginLeft:"20%", width: "80%", display:"table-cell"}}>
                 {/* <CreatePostButton children={"Create New Post"} onClick={() => {}}></CreatePostButton> */}
                 <PostList posts={props.posts}/>
