@@ -76,7 +76,7 @@ const [posts, setPosts] = useState([]);
       children: [
         {
           index: true,
-          element: <Home language={[language, setLanguage]} posts={posts}/>,
+          element: <Home language={[language, setLanguage]} posts={fakePostObjs}/>,
         },
         {
           path: '/:postID',
