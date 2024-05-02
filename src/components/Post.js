@@ -45,7 +45,7 @@ function Post(props) {
                 </div>
                <div>
                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end"}}>
-                    <a style={{textDecoration:"underline", color:"blue"}} onClick={(event) => {setIsOpen(true)}}>Reply</a>
+                    <a style={{textDecoration:"underline", color:"blue"}} onClick={(event) => {setIsOpen(!isOpen)}}>Reply</a>
                     <a style={{textDecoration:"underline", color:"blue"}}onClick={() => seeComments(props.ID)}>See Commments</a>
                 </div>
                 <div>
