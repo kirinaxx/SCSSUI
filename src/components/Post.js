@@ -1,5 +1,6 @@
 //I'm putting this component in it's own file because it might potentially be able to be reused in the ongoing page?
 import './post.css'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Post(props) {
@@ -20,14 +21,14 @@ function Post(props) {
                     </h2>
                 </Link>
                 <p className='description'>
-                    {props.description}
+                    {props.postOriginal}
                 </p>
                 <div className='stuff-below'>
                     <p>
-                        {props.date}
+                        { props.date }
                     </p>
                     <p>
-                        likes: {props.likes}
+                        likes: {props.numberOfLikes}
                     </p>
                 </div>
             </div>
