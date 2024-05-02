@@ -2,6 +2,7 @@
 import { useOutletContext } from "react-router-dom";
 import translate from "./TranslationStation";
 import CreatePostButton from "./CreatePostButton"; // Import the CreatePostButton component
+import React from "react";
 
 function Ongoing(props) {
 

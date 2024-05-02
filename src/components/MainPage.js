@@ -4,6 +4,7 @@ import guestProfile from '../assets/guestProfilePic.png';
 import hornetGuy from '../assets/hornetGuy.png'
 import { useState } from 'react';
 import translate from './TranslationStation';
+import React from "react";
 
 //MainPage has a bunch of child pages (eg. 'home', 'FAQ', etc.), the <Outlet /> is a standin for whatever current child page we are on
 function MainPage(props) {
@@ -28,7 +29,7 @@ const highlight = ({isActive}) => {
 
 //className={props.currLang === lang ? 'lang-button-active' : 'lang-button'}
 
-function DropDown(props) {
+function DropDown(props, onBlur) {
     const [language, setLanguage] = props.language
 
     const listItems = languages.map(lang => {
@@ -68,8 +69,8 @@ function NavBar(props) {
                 <NavLink className={highlight} to='/Resources'>{translate('Resources', language)}</NavLink>
             </li>
             <li>
-                <button className='lang-changer' onClick={() => setDisplayDropDown(!displayDropDown)}>{translate('Change Language', language)}</button>
-                {displayDropDown ? <DropDown language={props.language}/> : <></>}
+                <button className='lang-changer' onClick={() => setDisplayDropDown(!displayDropDown)} >{translate('Change Language', language)} </button>
+                {displayDropDown ? <DropDown language={props.language} /> : <></>}
             </li>
             
             <li>
