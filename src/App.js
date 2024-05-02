@@ -1,3 +1,4 @@
+import React from "react";
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import { useState } from 'react';
 import MainPage from './components/MainPage';
@@ -9,11 +10,19 @@ import Resources from './components/Resources';
 import FAQ from './components/FAQ';
 import About from './components/About';
 import guestPic from './assets/guestProfilePic.png';
+import { getAllPosts } from "./service/postService";
 
 function App() {
 
+
+const [posts, setPosts] = useState([]);
   //once we got api integration if we replace these precoded post objs with an api call to scoop the posts from the database it
   //*should* just work.
+ 
+  getAllPosts().then((res) => {
+    console.log(res.data)
+    setPosts(res.data)
+  });
   const fakePostObjs = [
     {
         title: 'Mi nombre es Ethan y tengo diez dedos :)', 
@@ -67,7 +76,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home language={[language, setLanguage]} posts={fakePostObjs}/>,
+          element: <Home language={[language, setLanguage]} posts={posts}/>,
         },
         {
           path: '/:postID',
