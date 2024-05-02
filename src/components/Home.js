@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import translate from "./TranslationStation";
 import React from "react";
 import horizontalLogo from "../assets/horizontalSacStateLogo.png"
+import SearchBar from "./SearchBar";
 import Post from "./Post";
 import './Home.css'
 
@@ -48,6 +49,7 @@ function Home(props) {
             <div className="GroupBar">
                 <p>I *think* the groups tab will go here in the future maybe? idk how we are gonna style it</p>
             </div>
+            <SearchBar />
             <PostList posts={props.posts}/>
         </>
     );
