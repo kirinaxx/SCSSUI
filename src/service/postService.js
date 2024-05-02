@@ -1,4 +1,5 @@
-import axios from "axios"
+import axios from "axios";
+
 
 const baseUrl = "http://localhost:8080/api/posts";
 export const getAllPosts = () => {

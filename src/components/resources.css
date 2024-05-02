@@ -1,0 +1,152 @@
+/* Style for the frameHex container */
+.frameHex {
+    align-items: center; /* Center items horizontally */
+    display: inline-flex;
+    gap: 10px;
+    height: 650px;
+    position: relative;
+    text-align: center; /* Center text within frameHex */
+}
+
+/* Style for the polygon within frameHex */
+.frameHex .polygon {
+    left: 250px;
+    margin-top: 100px;
+    margin-right: 100px;
+}
+
+/* Style for the offset within frameHex */
+.frameHex.offset {
+    left: 300px;
+    margin-top: -220px;
+}
+
+/* Style for links within frameHex */
+.frameHex a {
+    color: black; /* Set link color to black */
+    font-weight: bold; /* Set link text to bold */
+    text-decoration: none; /* Remove underline from link */
+}
+
+/* Style for the rectangle-wrapperHex */
+.frameHex .rectangle-wrapperHex {
+    align-items: center; /* Center items horizontally */
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 255px;
+    position: absolute;
+    top: 240px;
+}
+
+/* Style for the rectangleHex */
+.frameHex .rectangleHex {
+    background-color: #e7c554;
+    border-radius: 12px;
+    height: 20px;
+    position: relative;
+    width: 484px;
+    text-decoration: none;
+}
+
+/* Style for the frame-wrapperHex */
+.frameHex .frame-wrapperHex {
+    align-items: center; /* Center items horizontally */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 30px;
+    left: 270px;
+    position: absolute;
+    top: 210px;
+    width: 421px;
+    text-decoration: none;
+}
+
+/* Style for the div-wrapperHex */
+.frameHex .div-wrapperHex {
+    align-items: center; /* Center items horizontally */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 30px;
+    position: relative;
+    width: 421px;
+    text-decoration: none;
+}
+
+/* Style for the divHex */
+.frameHex .divHex {
+    align-items: center; /* Center items horizontally */
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: -31px;
+    position: relative;
+    text-decoration: none;
+}
+
+/* Style for the div-2Hex */
+.frameHex .div-2Hex {
+    align-items: center; /* Center items horizontally */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 18px;
+    position: relative;
+    width: 452px;
+    text-decoration: none;
+}
+
+/* Style for the internationalHex */
+.frameHex .internationalHex {
+    color: #000000;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    height: 100px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: -41px;
+    margin-right: -21px;
+    margin-top: -1px;
+    position: relative;
+    width: 473px;
+    text-decoration: none;
+}
+
+
+/* Style for the spanHex */
+.frameHex .spanHex {
+    color: #000000;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+/* Style for the pHex */
+.frameHex .pHex {
+    color: #000000;
+    font-family: "Inter-Medium", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: -369px;
+    position: relative;
+    width: 351px;
+    text-decoration: none;
+}
+
+/* Style for the text-wrapper-2Hex */
+.frameHex .text-wrapper-2Hex {
+    color: #000000;
+    font-family: "Inter-Medium", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-decoration: none; 
+}
