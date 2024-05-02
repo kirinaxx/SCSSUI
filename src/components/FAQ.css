@@ -17,11 +17,11 @@ body {
 
 /* Styling for the background image */
 .faq-background {
-  position: absolute;
+  position: fixed; /* Fixed position to cover the entire viewport */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw; /* Full width of viewport */
+  height: 100vh; /* Full height of viewport */
   background-image: url('../assets/FAQImage.jpg'); /* Path to background image */
   background-size: cover; /* Ensure the background covers the entire container */
   background-repeat: no-repeat; /* Prevent background from repeating */
