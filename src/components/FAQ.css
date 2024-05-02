@@ -1,0 +1,112 @@
+/* Reset default margin, padding, and box-sizing for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply sans-serif font family to the entire body */
+body {
+  font-family: sans-serif;
+}
+
+/* Positioning for the FAQ page */
+.faq-page {
+  position: relative;
+}
+
+/* Styling for the background image */
+.faq-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/FAQImage.jpg'); /* Path to background image */
+  background-size: cover; /* Ensure the background covers the entire container */
+  background-repeat: no-repeat; /* Prevent background from repeating */
+  z-index: -1; /* Ensure the background stays behind other content */
+}
+
+/* Styling for the header */
+header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 15px;
+}
+
+/* Styling for the header title */
+header h1 {
+  font-size: 30px;
+  font-weight: 900;
+  color: #094E39;
+  margin-top: 45px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for better visibility */
+}
+
+/* Styling for the FAQ container */
+.faqs {
+  width: 100%;
+  max-width: 768px; /* Limit maximum width of FAQ container */
+  margin: 0 auto; /* Center the FAQ container horizontally */
+  padding: 15px;
+}
+
+/* Styling for individual FAQs */
+.faqs .faq {
+  margin: 20px;
+  padding: 30px;
+  background: #094E39; /* Background color for FAQ */
+  border-radius: 10px; /* Rounded corners for FAQ */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+/* Styling for FAQ questions */
+.faqs .faq .faq-question {
+  position: relative;
+  font-size: 20px;
+  padding-right: 80px; /* Add space for toggle icon */
+  transition: all 0.4s ease; /* Add transition effect */
+  color: white; /* Text color */
+}
+
+/* Styling for toggle icon on FAQ questions */
+.faqs .faq .faq-question::after {
+  content: "+"; /* Initial icon */
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  font-size: 24px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  transition: all 0.2s ease; /* Add transition effect */
+  color: white; /* Icon color */
+}
+
+/* Styling for FAQ answers */
+.faqs .faq .faq-answer {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden; /* Hide overflow content */
+  transition: all 0.2s ease; /* Add transition effect */
+  color: white; /* Text color */
+}
+
+/* Styling for open FAQ questions */
+.faqs .faq.open .faq-question {
+  margin-bottom: 15px;
+  color: #00FF75; /* Change color for open question */
+}
+
+/* Styling for toggle icon on open FAQ questions */
+.faqs .faq.open .faq-question::after {
+  content: "-"; /* Updated icon for open question */
+}
+
+/* Styling for open FAQ answers */
+.faqs .faq.open .faq-answer {
+  max-height: 1000px; /* Expand maximum height for open answer */
+  opacity: 1; /* Show open answer */
+}
