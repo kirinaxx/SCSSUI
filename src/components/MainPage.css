@@ -131,6 +131,8 @@
     z-index: 2;
     border-radius: 5px;
     width: 230px;
+    height: 400px;
+    overflow-y: scroll;
     box-shadow: 5px 5px 5px lightgrey;
 }
 

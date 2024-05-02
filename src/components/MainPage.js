@@ -4,6 +4,7 @@ import guestProfile from '../assets/guestProfilePic.png';
 import hornetGuy from '../assets/hornetGuy.png'
 import { useState } from 'react';
 import translate from './TranslationStation';
+import ListOfLanguages from './ListOfLanguages';
 
 //MainPage has a bunch of child pages (eg. 'home', 'FAQ', etc.), the <Outlet /> is a standin for whatever current child page we are on
 function MainPage(props) {
@@ -31,13 +32,11 @@ const highlight = ({isActive}) => {
 function DropDown(props) {
     const [language, setLanguage] = props.language
 
-    const listItems = languages.map(lang => {
+    const listItems = ListOfLanguages.map(lang => {
         return(
         <li>
-            <button className={language === lang ? 'lang-button-active' : 'lang-button'} onClick={() => {
-                                                                                                setLanguage(lang)
-                                                                                                console.log('hopefully worked' + language)}}>
-                {lang}
+            <button className={language === lang[1] ? 'lang-button-active' : 'lang-button'} onClick={() => setLanguage(lang[1])}>
+                {lang[1]}
             </button>
         </li>)}
         )

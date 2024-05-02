@@ -57,6 +57,36 @@ function App() {
     }
 ];
 
+const fakeCommentObjs = [
+  {
+      body: 'This was INSPIRATIONAL',
+      user: 'appreciator of wisdom',
+      ID: 40,
+      likes: 1000,
+      date: '04-30-2024',
+      parent: 1,
+      children: null
+  },
+  {
+      body: 'Pfffft who cares old man??',
+      user: 'fool',
+      ID: 60,
+      likes: -10000000,
+      date: '04-30-2024',
+      parent: 1,
+      children: null
+  },
+  {
+      body: 'great language cantonese is',
+      user: 'Bob',
+      ID: 10,
+      likes: 4,
+      date: '04-30-2024',
+      parent: 4,
+      children: null
+  }
+];
+
   const [language, setLanguage] = useState("English");
 
   //This is all the pages and subpages of pages(denoted by children: ...) that our website will use
@@ -71,7 +101,7 @@ function App() {
         },
         {
           path: '/:postID',
-          element: <FullscreenPost posts={fakePostObjs}/>,
+          element: <FullscreenPost posts={fakePostObjs} comments={fakeCommentObjs}/>,
         },
         {
           path: '/Ongoing',
