@@ -1,3 +1,9 @@
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .post {
     border: 3px solid lightgray;
     width: 1000px;
@@ -50,4 +56,81 @@
     justify-content: space-between;
     align-items: flex-end;
     height: 195px;
+}
+
+.empty-post-container {
+    text-align: center;
+}
+
+.empty-post {
+    border: 3px solid lightgray;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 1000px; /* Add max-width to limit the width */
+    margin: 20px auto; /* Center the empty post horizontally */
+    padding: 20px; /* Add padding */
+    box-shadow: 3px 3px 3px lightgrey;
+    font-family: "Libre Baskerville";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    background-color: #f9f9f9;
+}
+
+.empty-post .post-padding {
+    max-width: 100%; /* Adjust max-width to ensure content fits */
+    padding-bottom: 10px; /* Adjust padding at the bottom */
+}
+
+.empty-post .post-title {
+    width: 100%; /* Adjust the width of the title input */
+    padding: 10px; /* Reduce padding */
+    margin-bottom: 10px; /* Add margin bottom */
+}
+
+.empty-post .description {
+    width: 100%; /* Adjust the width of the body textarea */
+    height: 150px; /* Adjust the height of the body textarea */
+    padding: 10px; /* Adjust the padding of the body textarea */
+    margin-bottom: -125px; /* Add margin bottom to create space between textarea and buttons */
+    max-width: 955px;
+    min-width: 955px;
+    min-height: 150px;
+}
+
+
+.empty-post .pfp {
+    border-radius: 50%;
+    max-width: 70px;
+}
+
+.empty-post .username {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24.8px;
+}
+
+.empty-post .top-part-post {
+    display: flex;
+    flex-direction: row;
+}
+
+.empty-post .stuff-below {
+    text-align: right; /* Align buttons to the right */
+    margin-top: 10px; /* Adjust margin top to separate buttons */
+    margin-bottom: 10px; /* Add margin bottom to create space between textarea and buttons */
+}
+
+.empty-post .stuff-below button {
+    padding: 20px 60px; /* Increase padding to increase button size */
+    cursor: pointer;
+    background-color: #094E39; /* Same color as the create post button */
+    color: #F5FA0E; /* Same text color as the create post button */
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 18px; /* Change the font size */
+    font-weight: bold; /* Make the text bold */
+    margin-left: 10px; /* Add margin between buttons */
+    margin-right: 10px;
 }

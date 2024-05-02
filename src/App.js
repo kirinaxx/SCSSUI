@@ -84,7 +84,7 @@ const [posts, setPosts] = useState([]);
         },
         {
           path: '/Ongoing',
-          element: <Ongoing language={[language, setLanguage]}/>,
+          element: <Ongoing language={[language, setLanguage]} posts={fakePostObjs} />,
         },
         {
           path: '/Resources',
