@@ -13,12 +13,12 @@ function About(props) {
   return (
     <>
       <img src={mascot} alt="mascot" className="mascot" />
-      <p>{translate("This is the about page", language)}</p>
+      
       
       <div className="frame">
         <div className="div">
           <div className="div-wrapper">
-            <div className="text-wrapper">About Us</div>
+            <div className="text-wrapper">{translate("About Us", language)}</div>
           </div>
           <p className="p">
             {translate("We as a team wanted to bring international students together, providing a platform where they can share their experiences, ideas, thoughts, and concerns. With all these cultivated experiences, we can grow the “hive mind” and support each other to succeed.", language)}
@@ -29,7 +29,7 @@ function About(props) {
       <div className="frame offset"> {/* Added 'offset' class */}
         <div className="div">
           <div className="div-wrapper">
-            <div className="text-wrapper">Mission</div>
+            <div className="text-wrapper">{translate("Mission", language)}</div>
           </div>
           <p className="p">
             {translate("Creating an environment at Sacramento State University, California, that fosters connections, cultural exchange, and unforgettable experiences for international students.", language)}
@@ -61,10 +61,6 @@ function About(props) {
         <img src={poly1} alt="poly1" className="poly1" />
         <div className="text-wrapper">EC</div>
       </div>
-
-
-
-      
     </>
   );
 }

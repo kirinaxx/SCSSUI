@@ -65,7 +65,7 @@ function Resources(props) {
                             target="_blank"
                         >
                             <span className="text-wrapperHex">
-                                I{translate("International Student and Scholar Services", language)}
+                                {translate("International Student and Scholar Services", language)}
                                 <br />
                                 <br />
                                 <br />
@@ -84,7 +84,7 @@ function Resources(props) {
                             </span>
                         </a>
                         <a
-                            href="hhttps://www.csus.edu/international-programs-global-engagement/the-passport-place.html"
+                            href="https://www.csus.edu/international-programs-global-engagement/the-passport-place.html"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
