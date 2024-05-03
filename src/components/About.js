@@ -13,7 +13,7 @@ function About(props) {
   return (
     <>
       <img src={mascot} alt="mascot" className="mascot" />
-      <p>{translate("This is the about page", language)}</p>
+
       
       <div className="frame">
         <div className="div">

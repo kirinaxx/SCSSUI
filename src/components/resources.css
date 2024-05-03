@@ -15,6 +15,17 @@
     margin-right: 100px;
 }
 
+.frameHex .polygon path {
+    fill: #F0DFA7;
+    stroke: #efb727; /* Add stroke to create outline */
+    stroke-width: 5px; /* Adjust the width of the stroke */
+}
+
+.frameHex .outline {
+    stroke: #efb727;
+    stroke-width: 4px;
+}
+
 /* Style for the offset within frameHex */
 .frameHex.offset {
     left: 300px;
@@ -149,4 +160,11 @@
     font-weight: 500;
     letter-spacing: 0;
     text-decoration: none; 
+}
+.page-container.background-image {
+    background-image: url('../assets/sacState.jpg'); /* Set background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; 
+     
 }
