@@ -18,17 +18,11 @@ function MainPage(props) {
     );
 }
 
-const languages = ['English', 'Spanish', 'Farsi']
-
-
-
 //ALL the code below is for the components TopBannerThing and NavBar, also functions and sub-components for them
 //this code is a little gross, sorry :(
 const highlight = ({isActive}) => {
     return isActive ? 'nav-item-active' : 'nav-item'
 }
-
-//className={props.currLang === lang ? 'lang-button-active' : 'lang-button'}
 
 function DropDown(props, onBlur) {
     const [language, setLanguage] = props.language
