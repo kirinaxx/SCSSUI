@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Post from "./Post";
 import CreatePostButton from "./CreatePostButton";
 import "./post.css";
+import { addPost } from "../service/postService";
 
 function Ongoing(props) {
     const language = props.language[0];
@@ -33,6 +34,18 @@ function Ongoing(props) {
     const handlePostSubmit = () => {
         // Handle submitting the post data (e.g., send to backend)
         // Reset post title and body
+        const newPost = {
+            id: null, 
+            title: postTitle, 
+            postOriginal: postBody,
+            numberOfLikes: 0, 
+            parentId: 0,
+            tagIds: [1,3]
+        };
+        addPost(newPost).then(() => {
+            console.log(newPost);
+        })
+
         setPostTitle("");
         setPostBody("");
         // After submitting, set creatingPost to false to hide the input fields

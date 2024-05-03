@@ -44,7 +44,6 @@ function Post(props) {
         if(isOpenComment)
         {
         getAllPostsByParentId(parentId).then((res) => {
-           
             setComments(res.data)
           });
         }

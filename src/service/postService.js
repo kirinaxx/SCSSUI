@@ -18,6 +18,6 @@ export const addPost = (post) => {
         date: post.date,
         numberOfLikes: post.numberOfLikes,
         parentId: post.parentId,
-        tagIds: [1,2]
+        tagIds: post.tagIds
     });
 }
