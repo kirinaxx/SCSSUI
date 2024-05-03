@@ -1,0 +1,92 @@
+.fpost {
+    border: 3px solid lightgray;
+    width: 1000px;
+    height: 250px;
+    padding: 30px;
+    margin-top: 20px;
+    
+}
+
+.post-padding {
+    max-width: 900px;
+}
+
+.post-title {
+    color: #094E39;
+
+    font-family: "Libre Baskerville";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.description {
+    color: #000;
+
+    font-family: "Libre Baskerville";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.pfp {
+    border-radius: 50%;
+    max-width: 70px;
+}
+
+.fusername {
+    font-family: "Libre Baskerville";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24.8px;
+}
+
+.top-part-post {
+    display: flex;
+    flex-direction: row;
+}
+
+.fstuff-below {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 50px;
+}
+
+.comment{
+    padding: 20px;
+    border: 3px solid lightgrey;
+    max-width: 1000px;
+}
+
+.sub-comments {
+    margin-top: 10px;
+}
+
+.comment-body {
+    color:gray;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.margin-between-post-and-comments {
+    margin-top: 20px;
+    width: 1000px;
+}
+
+.likes-section {
+    color:gray;
+    font-size: small;
+}
+
+.the-whole-shBang {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
