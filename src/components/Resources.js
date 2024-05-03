@@ -9,7 +9,9 @@ function Resources(props) {
  
 
     return(
-        <>
+        <div className="page-container background-image"> {/* Added className and background-color */}
+        
+        
         <div className="frameHex">
         <svg className= "frameHex polygon" width="500" height="550" viewBox="0 0 564 650" fill="none" xmlns="http://www.w3.org/2000/svg"> x{100}
         <path d="M282 0L563.458 162.5V487.5L282 650L0.541748 487.5V162.5L282 0Z" fill="#F0DFA7"/>
@@ -112,7 +114,6 @@ function Resources(props) {
             </div>
          </div>
         </div>
-        
 
 
     
@@ -288,7 +289,7 @@ function Resources(props) {
         
 
             
-        </>
+        </div>
     );
 }
 

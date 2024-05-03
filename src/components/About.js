@@ -14,7 +14,6 @@ function About(props) {
     <>
       <img src={mascot} alt="mascot" className="mascot" />
       
-      
       <div className="frame">
         <div className="div">
           <div className="div-wrapper">
