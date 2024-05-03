@@ -3,13 +3,26 @@ import './post.css'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import post from '../models/post';
+import { addPost } from '../service/postService';
 
 function Post(props) {
     const link = '/' + props.ID
     const [isOpen, setIsOpen] = useState(false);
     function replyToPost(parentId)
     {
-        console.log("reply");
+        var post = document.getElementById('post'+parentId).value;
+        const newPost = {
+            id: null, 
+            title: null, 
+            postOriginal: post,
+            numberOfLikes: 0, 
+            parentId: parentId
+        };
+        addPost(post).then(() => {
+            console.log(post);
+            isOpen = !isOpen;
+        })
     }
 
     function seeComments(parentId)
@@ -46,12 +59,12 @@ function Post(props) {
                <div>
                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end"}}>
                     <a style={{textDecoration:"underline", color:"blue"}} onClick={(event) => {setIsOpen(!isOpen)}}>Reply</a>
-                    <a style={{textDecoration:"underline", color:"blue"}}onClick={() => seeComments(props.ID)}>See Commments</a>
+                    <a style={{textDecoration:"underline", color:"blue"}}onClick={() => seeComments(props.Id)}>See Commments</a>
                 </div>
                 <div>
                     <div className="text-area">
-                    <textarea style={{display: isOpen ? "flex" : "none"}} className="text-input" rows="6" placeholder="Write your reply..." id="post" ></textarea>
-                    <button className="post-button" hidden={!isOpen} onClick={() => replyToPost()}>Post</button>
+                    <textarea style={{display: isOpen ? "flex" : "none"}} className="text-input" rows="6" placeholder="Write your reply..." id={"post" + props.id} ></textarea>
+                    <button className="post-button" hidden={!isOpen} onClick={() => replyToPost(props.id)}>Post</button>
                  </div>
                 </div>
                </div>

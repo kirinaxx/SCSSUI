@@ -29,7 +29,7 @@ const [posts, setPosts] = useState([]);
         user: 'HyperCoderEthan',
         pfp: guestPic,
         description: 'Desde que tengo uso de razón, he tenido 10 malditos dedos.',
-        ID: '1',
+        id: '1',
         likes: 100000,
         date: '04-29-2024',
         children: ['40', '60']
