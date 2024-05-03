@@ -54,7 +54,6 @@ function LoginPage() {
                 return;
                 
             }
-            debugger;
             //Hash the password using SHA-512
             const hashedPassword = sha512(password);
             try {

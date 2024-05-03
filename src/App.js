@@ -19,10 +19,7 @@ const [posts, setPosts] = useState([]);
   //once we got api integration if we replace these precoded post objs with an api call to scoop the posts from the database it
   //*should* just work.
  
-  getAllPosts().then((res) => {
-    res.data = res.data.filter(x => x.parentId == null);
-    setPosts(res.data)
-  });
+  
   const fakePostObjs = [
     {
         title: 'Mi nombre es Ethan y tengo diez dedos :)', 
@@ -105,6 +102,9 @@ const fakeCommentObjs = [
 },
 ];
 
+function handleDataFromChild(data) {
+  setPosts(data);
+}
   const [language, setLanguage] = useState("English");
 
   //This is all the pages and subpages of pages(denoted by children: ...) that our website will use
@@ -115,7 +115,7 @@ const fakeCommentObjs = [
       children: [
         {
           index: true,
-          element: <Home language={[language, setLanguage]} posts={posts}/>,
+          element: <Home language={[language, setLanguage]} posts={posts} setPosts={handleDataFromChild}/>,
         },
         {
           path: '/:postID',

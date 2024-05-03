@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { useParams } from "react-router-dom"
 import "./FullscreenPost.css"
+import { getAllPosts } from "../service/postService";
 
 
 function FullscreenPost(props) {
