@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './LoginPage.css'; // Import CSS file for styling
 import logo from '../assets/hornetGuy.png'; //website logo
+import React from "react";
 
 function LoginPage() {
     const [isRegistering, setIsRegistering] = useState(false);

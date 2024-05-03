@@ -1,0 +1,139 @@
+
+.mascot {
+    position: absolute;
+    width: 456px;
+    height: 391px;
+    left: 270px;
+    top: 210px;
+    
+    border-radius: 180.5px;
+    
+}
+
+.frame{
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 10px;
+    position: absolute;
+    top: 600px;
+    left: 230px;
+}
+
+.frame.offset{
+    top:280px;
+    gap:20px;
+    left: 800px;
+    
+
+}
+
+
+
+
+.frame .div{
+    align-items: center;
+    background-color: #89b47966;
+    border-radius:20px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 1px;
+    overflow: hidden;
+    padding: 0px 30px;
+    position: absolute;
+
+
+}
+
+.frame .div-wrapper{
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+}
+
+.frame .text-wrapper{
+    color: #000000;
+    font-family:"Libre Baskerville-Bold", Helvetica;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing:0;
+    line-height: normal;
+    margin-top: 0px;
+    position: relative;
+    text-align: center;
+    width: fit-content;
+}
+
+.frame .p{
+    color: #000000;
+    font-family: "Libre Baskerville", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height :173px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width: 450px;
+
+}
+
+.frame .text-wrapper-2{
+    color: #000000;
+    font-family: "Lora-Medium", Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    height: 57px;
+    left: 206px;
+    letter-spacing: 0;
+    line-height: normal;
+  
+    position: absolute;
+    top: 166px;
+    width: 170px;
+}
+
+.framePoly{
+    align-items: flex-start;
+  display:inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: 370px;
+    left:860px;
+
+}
+.framePoly.offset{
+    top: 500px;
+    gap: 20px;
+ left: 468px; /*adjsut*/
+
+
+}
+
+.framePoly .poly1{
+    height: 145px;
+    position: relative;
+    width: 134.23px;
+    margin-right: 23px;
+}
+
+.framePoly .text-wrapper{
+    color: #000000;
+    font-family: "Life Savers-Bold", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    height: 49px;
+    left: 31px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    width: 73px;
+    top: 65px;
+}

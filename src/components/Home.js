@@ -1,24 +1,37 @@
 //useOutletContext is going to be how we receive state variables from parent components
 import { useOutletContext } from "react-router-dom";
 import translate from "./TranslationStation";
+import React from "react";
 import horizontalLogo from "../assets/horizontalSacStateLogo.png"
+import SearchBar from "./SearchBar";
 import Post from "./Post";
 import './Home.css'
+import CreatePostButton from "./CreatePostButton";
 
 function Home(props) {
 
     const language = props.language[0]
 
     return(
-        <>
+        <body>
             <div className='Logo-Container'>
                 <img className='Sac-Logo' src={horizontalLogo} alt="Sac State Logo"></img>
             </div>
-            <div className="GroupBar">
+            <div style={{width: "100%", display:"table"}}>
+                <div style={{display:"table-row"}}>
+                <div className="GroupBar" style={{width: "20%", display:"table-cell"}}>
                 <p>I *think* the groups tab will go here in the future maybe? idk how we are gonna style it</p>
             </div>
-            <PostList posts={props.posts}/>
-        </>
+            <SearchBar />
+            <div style={{marginLeft:"20%", width: "80%", display:"table-cell"}}>
+                {/* <CreatePostButton children={"Create New Post"} onClick={() => {}}></CreatePostButton> */}
+                <PostList posts={props.posts}/>
+
+                </div>
+            </div>
+            </div>
+            
+        </body>
     );
 }
 

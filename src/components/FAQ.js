@@ -16,7 +16,7 @@ function FAQ(props) {
     {
       question: "Can I use the website in my preferred language?",
       answer: "Absolutely! You can do so by clicking “Change Language” from the navigation bar above. From there you can set the website to your preferred language.",
-      open: true
+      open: false
     },
     {
       question: "How can I connect to other international students?",

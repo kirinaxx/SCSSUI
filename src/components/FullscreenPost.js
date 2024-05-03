@@ -1,5 +1,7 @@
+import React from "react";
 import { useParams } from "react-router-dom"
 import "./FullscreenPost.css"
+
 
 function FullscreenPost(props) {
     const params = useParams();
