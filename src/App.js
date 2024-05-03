@@ -20,7 +20,7 @@ const [posts, setPosts] = useState([]);
   //*should* just work.
  
   getAllPosts().then((res) => {
-    console.log(res.data)
+    res.data = res.data.filter(x => x.parentId == null);
     setPosts(res.data)
   });
   const fakePostObjs = [
@@ -29,7 +29,7 @@ const [posts, setPosts] = useState([]);
         user: 'HyperCoderEthan',
         pfp: guestPic,
         description: 'Desde que tengo uso de razón, he tenido 10 malditos dedos.',
-        ID: '1',
+        id: '1',
         likes: 100000,
         date: '04-29-2024',
         children: ['40', '60']
@@ -115,15 +115,15 @@ const fakeCommentObjs = [
       children: [
         {
           index: true,
-          element: <Home language={[language, setLanguage]} posts={fakePostObjs}/>,
+          element: <Home language={[language, setLanguage]} posts={posts}/>,
         },
         {
           path: '/:postID',
-          element: <FullscreenPost posts={fakePostObjs} comments={fakeCommentObjs}/>,
+          element: <FullscreenPost posts={posts} comments={posts}/>,
         },
         {
           path: '/Ongoing',
-          element: <Ongoing language={[language, setLanguage]} posts={fakePostObjs} />,
+          element: <Ongoing language={[language, setLanguage]} posts={posts} />,
         },
         {
           path: '/Resources',

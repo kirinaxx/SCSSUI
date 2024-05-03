@@ -12,6 +12,14 @@
     box-shadow: 3px 3px 3px lightgrey;
 }
 
+.comment {
+    border: 3px solid lightgray;
+    width: 800px;
+    height: 100%;
+    padding: 30px;
+    box-shadow: 3px 3px 3px lightgrey;
+}
+
 .post-padding {
     max-width: 900px;
 }
@@ -23,7 +31,7 @@
     font-weight: 400;
     font-style: normal;
     font-size: 40px;
-}
+}             
 
 .description {
     color: #000;
@@ -52,6 +60,12 @@
 }
 
 .stuff-below {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 195px;
+}
+.stuff-below-home {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -93,7 +107,7 @@
     padding: 10px; /* Adjust the padding of the body textarea */
     margin-bottom: -125px; /* Add margin bottom to create space between textarea and buttons */
     max-width: 955px;
-    min-width: 955px;
+    /* min-width: 955px; */
     min-height: 150px;
 }
 
@@ -119,6 +133,12 @@
     margin-top: 10px; /* Adjust margin top to separate buttons */
     margin-bottom: 10px; /* Add margin bottom to create space between textarea and buttons */
 }
+.empty-post .stuff-below-home {
+    text-align: right; /* Align buttons to the right */
+    margin-top: 10px; /* Adjust margin top to separate buttons */
+    margin-bottom: 10px; /* Add margin bottom to create space between textarea and buttons */
+    height: auto;
+}
 
 .empty-post .stuff-below button {
     padding: 20px 60px; /* Increase padding to increase button size */
@@ -133,4 +153,43 @@
     font-weight: bold; /* Make the text bold */
     margin-left: 10px; /* Add margin between buttons */
     margin-right: 10px;
+}
+.empty-post .stuff-below-home button {
+    padding: 20px 60px; /* Increase padding to increase button size */
+    cursor: pointer;
+    background-color: #094E39; /* Same color as the create post button */
+    color: #F5FA0E; /* Same text color as the create post button */
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 18px; /* Change the font size */
+    font-weight: bold; /* Make the text bold */
+    margin-left: 10px; /* Add margin between buttons */
+    margin-right: 10px;
+}
+.ReactTags__selected{
+    margin: 2px;
+}
+
+.tags span {
+    border: none;
+    background-color: #9aaea9;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold; /* Make the text bold */
+}
+
+.tags button {
+    padding: 1px 3px; /* Increase padding to increase button size */
+    cursor: pointer;
+    background-color: #094E39; /* Same color as the create post button */
+    color: #F5FA0E; /* Same text color as the create post button */
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold; /* Make the text bold */
+    margin-top: 2px;
 }

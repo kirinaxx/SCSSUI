@@ -9,6 +9,7 @@ function Ongoing(props) {
     const [creatingPost, setCreatingPost] = useState(false);
     const [postTitle, setPostTitle] = useState("");
     const [postBody, setPostBody] = useState("");
+    
 
     const handleCreatePost = () => {
         setCreatingPost(true);
@@ -77,13 +78,13 @@ function Ongoing(props) {
             <div className="posts-container">
                 {props.posts.map((post) => (
                     <Post
-                        key={post.ID}
+                        id={post.id}
                         title={post.title}
                         user={post.user}
                         pfp={post.pfp}
-                        postOriginal={post.description}
+                        postOriginal={post.postOriginal}
                         date={post.date}
-                        numberOfLikes={post.likes}
+                        numberOfLikes={post.numberOfLikes}
                     />
                 ))}
             </div>
