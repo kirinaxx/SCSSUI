@@ -61,7 +61,7 @@ const fakeCommentObjs = [
   {
       body: 'This was INSPIRATIONAL',
       user: 'appreciator of wisdom',
-      ID: 40,
+      ID: '40',
       likes: 1000,
       date: '04-30-2024',
       parent: 1,
@@ -70,21 +70,30 @@ const fakeCommentObjs = [
   {
       body: 'Pfffft who cares old man??',
       user: 'fool',
-      ID: 60,
+      ID: '60',
       likes: -10000000,
       date: '04-30-2024',
       parent: 1,
-      children: null
+      children: ['20']
   },
   {
       body: 'great language cantonese is',
       user: 'Bob',
-      ID: 10,
+      ID: '10',
       likes: 4,
       date: '04-30-2024',
       parent: 4,
       children: null
-  }
+  },
+  {
+    body: 'username checks out',
+    user: 'foolSlayer',
+    ID: '20',
+    likes: 37,
+    date: '04-30-2024',
+    parent: 60,
+    children: null
+},
 ];
 
   const [language, setLanguage] = useState("English");
