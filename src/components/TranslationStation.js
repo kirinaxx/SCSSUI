@@ -33,6 +33,16 @@ function getLanguageCode(lang) {
             return (ListOfLanguages[i][0]);
         }
     }
+//     const [isSending, setIsSending] = useState(false)
+//     const tagsClick = useCallback(async (id) => {
+     
+//     if (isSending) return
+//     setIsSending(true)
+//     await getAllPostsByTagId([id]).then(res => {
+//         handleDataFromChild(res.data);
+//     });
+//     setIsSending(false)
+//   }, [isSending])
 }
 
 export default translate
