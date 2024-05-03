@@ -8,36 +8,6 @@ import Post from "./Post";
 import './Home.css'
 import CreatePostButton from "./CreatePostButton";
 
-const fakeCommentObjs = [
-    {
-        body: 'This was INSPIRATIONAL',
-        user: 'appreciator of wisdom',
-        ID: 40,
-        likes: 1000,
-        date: '04-30-2024',
-        parent: 1,
-        children: null
-    },
-    {
-        body: 'Pfffft who cares old man??',
-        user: 'fool',
-        ID: 60,
-        likes: -10000000,
-        date: '04-30-2024',
-        parent: 1,
-        children: null
-    },
-    {
-        body: 'great language cantonese is',
-        user: 'Bob',
-        ID: 10,
-        likes: 4,
-        date: '04-30-2024',
-        parent: 4,
-        children: null
-    }
-];
-
 function Home(props) {
 
     const language = props.language[0]
