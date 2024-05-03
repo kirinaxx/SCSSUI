@@ -28,10 +28,6 @@
     
 
 }
-
-
-
-
 .frame .div{
     align-items: center;
     background-color: #89b47966;
@@ -100,14 +96,19 @@
 
 .framePoly{
     align-items: flex-start;
-  display:inline-flex;
+    display:inline-flex;
     flex-direction: column;
     gap: 10px;
     position: relative;
     top: 370px;
     left:860px;
+    fill: initial;
+    transition: fill 0.322s;
+    
 
 }
+
+
 .framePoly.offset{
     top: 500px;
     gap: 20px;
@@ -137,3 +138,5 @@
     width: 73px;
     top: 65px;
 }
+
+
