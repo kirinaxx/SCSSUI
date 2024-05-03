@@ -20,7 +20,7 @@ const [posts, setPosts] = useState([]);
   //*should* just work.
  
   getAllPosts().then((res) => {
-    console.log(res.data)
+    res.data = res.data.filter(x => x.parentId == null);
     setPosts(res.data)
   });
   const fakePostObjs = [
@@ -115,15 +115,15 @@ const fakeCommentObjs = [
       children: [
         {
           index: true,
-          element: <Home language={[language, setLanguage]} posts={fakePostObjs}/>,
+          element: <Home language={[language, setLanguage]} posts={posts}/>,
         },
         {
           path: '/:postID',
-          element: <FullscreenPost posts={fakePostObjs} comments={fakeCommentObjs}/>,
+          element: <FullscreenPost posts={posts} comments={posts}/>,
         },
         {
           path: '/Ongoing',
-          element: <Ongoing language={[language, setLanguage]} posts={fakePostObjs} />,
+          element: <Ongoing language={[language, setLanguage]} posts={posts} />,
         },
         {
           path: '/Resources',

@@ -18,6 +18,11 @@ function LoginPage() {
         setIsRegistering(!isRegistering);
         setFormError('');
     };
+    const crypto = require('crypto');
+
+    function sha512(input) {
+        return crypto.createHash('sha512').update(input).digest('hex');
+    }
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -49,11 +54,12 @@ function LoginPage() {
                 return;
                 
             }
+            debugger;
             //Hash the password using SHA-512
             const hashedPassword = sha512(password);
             try {
                 // Call Java API with the registration info including the hashed password
-                const response = await axios.post('/api/register', { username, password: hashedPassword });
+                const response = await axios.post('http://localhost:8080/api/user/signup', { userLogin: username, userPassword: hashedPassword, userHash: hashedPassword, userName: username});
     
                 // Handle the response as needed
                 console.log('Registration successful:', response.data);
@@ -72,7 +78,7 @@ function LoginPage() {
 
             try {
                 // Call Java API to authenticate the user
-                const response = await axios.post('/api/login', { username, password: hashedPassword });
+                const response = await axios.post('http://localhost:8080/api/user/login', { userLogin: username, userHash: hashedPassword});
                 
                 // Success response:
                 console.log('Login successful,', response.data);

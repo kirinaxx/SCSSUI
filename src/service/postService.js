@@ -11,5 +11,13 @@ export const getAllPostsByParentId = (parentId) => {
 }
 
 export const addPost = (post) => {
-    return axios.post(baseUrl + "/addpost", post);
+    return axios.post(baseUrl + "/addpost", {
+        id: post.id,
+        title: post.title,
+        postOriginal: post.postOriginal,
+        date: post.date,
+        numberOfLikes: post.numberOfLikes,
+        parentId: post.parentId,
+        tagIds: [1,2]
+    });
 }

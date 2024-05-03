@@ -7,19 +7,25 @@ function FullscreenPost(props) {
     const params = useParams();
     
     const post = getPostFromPostID(props.posts, params.postID)
+    const [posts, setPosts] = useState([]);
+    getAllPosts().then((res) => {
+        // console.log(res.data)
+        res.data = res.data.filter(x => x.parentId == null);
+        setPosts(res.data)
+      });
     return(
         <>
         <div className='the-whole-shBang'>
             <div className='fpost'>
                 <div className='post-padding'>
                     <div className='top-part-post'>
-                        <img className='pfp' src={post.pfp} alt='profile picture'></img>
+                        {/* <img className='pfp' src={post.pfp} alt='profile picture'></img> */}
                         <p className='fusername'>
-                            {post.user}
+                            {/* {post.user} */}
                         </p>
                     </div>
                     <h2 className='post-title'>
-                        {post.title}
+                        {post.postOriginal}
                     </h2>
                     <p className='description'>
                         {post.description}
