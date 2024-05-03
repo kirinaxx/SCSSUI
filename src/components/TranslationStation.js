@@ -3,16 +3,27 @@
 import ListOfLanguages from "./ListOfLanguages";
 import axios from "axios";
 
+
+
 const baseUrl = "http://localhost:8080/api/translation"
 
-function translate(input, lang) {
+ function translate(input, lang) {
     if (lang === 'English') {
         return(input)
     } else {
         var output = ""
         const target = getLanguageCode(lang)
-        axios.get(baseUrl + "/" + target + "/" + input).then( (response) => output = response.data);
-        return(output);
+        const response = axios.get(baseUrl + "/" + target + "/" + input);
+        //.then( (response) => {
+           // debugger;
+           response.then(res => {
+            output= res.data
+            //output = response.data;
+            console.log(output);
+            return(output);
+            
+           });
+        console.log("please be in the language" + output)
     }
 }
 
