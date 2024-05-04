@@ -1,43 +1,65 @@
-import {Link, NavLink, Outlet} from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import './MainPage.css';
 import guestProfile from '../assets/guestProfilePic.png';
 import hornetGuy from '../assets/hornetGuy.png'
-import { useState } from 'react';
-import translate from './TranslationStation';
+import { useState, useEffect } from 'react'; // Import useEffect
+import translate from './TranslationStation'; // Import translate function
 import React from "react";
 import ListOfLanguages from './ListOfLanguages';
 
-//MainPage has a bunch of child pages (eg. 'home', 'FAQ', etc.), the <Outlet /> is a standin for whatever current child page we are on
+// Define the highlight function
+const highlight = ({ isActive }) => {
+    return isActive ? 'nav-item-active' : 'nav-item';
+}
+
 function MainPage(props) {
+    const [language, setLanguage] = useState(props.language);
+    const [translatedNavBarItems, setTranslatedNavBarItems] = useState([]);
+
+    // Array of text items for the NavBar
+    const navBarItems = [
+        'Home',
+        'Ongoing',
+        'Resources',
+        'FAQ',
+        'About',
+        'Change Language' // This text will be replaced with the translated text
+    ];
+
+    // Function to handle language change
+    const handleLanguageChange = async (selectedLanguage) => {
+        setLanguage(selectedLanguage);
+        const translatedItems = await translateAll(navBarItems, selectedLanguage);
+        setTranslatedNavBarItems(translatedItems);
+    }
+
+    // Function to translate all items in an array
+    const translateAll = async (items, lang) => {
+        const translatedItems = await Promise.all(items.map(item => translate(item, lang)));
+        return translatedItems;
+    }
+
     return (
         <>
-            <TopBannerThing language={props.language}/>
-            <NavBar language={props.language} />
+            <TopBannerThing language={language}/>
+            <NavBar language={language} navBarItems={translatedNavBarItems.length > 0 ? translatedNavBarItems : navBarItems} onLanguageChange={handleLanguageChange} />
             <Outlet />
         </>
     );
 }
 
-//ALL the code below is for the components TopBannerThing and NavBar, also functions and sub-components for them
-//this code is a little gross, sorry :(
-const highlight = ({isActive}) => {
-    return isActive ? 'nav-item-active' : 'nav-item'
-}
+function DropDown(props) {
+    const { language, onLanguageChange } = props;
 
-function DropDown(props, onBlur) {
-    const [language, setLanguage] = props.language
-
-    const listItems = ListOfLanguages.map(lang => {
-        return(
-        <li>
-            <button className={language === lang[1] ? 'lang-button-active' : 'lang-button'} onClick={() => setLanguage(lang[1])}>
+    const listItems = ListOfLanguages.map(lang => (
+        <li key={lang[0]}>
+            <button className={language === lang[1] ? 'lang-button-active' : 'lang-button'} onClick={() => onLanguageChange(lang[1])}>
                 {lang[1]}
             </button>
-        </li>)}
-        )
+        </li>
+    ));
 
-
-    return(
+    return (
         <div className='dropdown'>
             <ul className='list-inside-dropdown'>
                 {listItems}
@@ -47,48 +69,38 @@ function DropDown(props, onBlur) {
 }
 
 function NavBar(props) {
+    const { language, navBarItems, onLanguageChange } = props;
     const [displayDropDown, setDisplayDropDown] = useState(false);
-    const language = props.language[0]
 
-    return(
+    const handleLanguageButtonClick = () => {
+        setDisplayDropDown(!displayDropDown);
+    }
+
+    return (
         <ul className='navbar'>
-            <li>
-                <NavLink className={highlight} to='/'>{translate('Home', language)}</NavLink>
-            </li>
-            <li>
-                <NavLink className={highlight} to='/Ongoing'>{translate('Ongoing', language)}</NavLink>
-            </li>
-            <li>
-                <NavLink className={highlight} to='/Resources'>{translate('Resources', language)}</NavLink>
-            </li>
-            <li>
-                <button className='lang-changer' onClick={() => setDisplayDropDown(!displayDropDown)} >{translate('Change Language', language)} </button>
-                {displayDropDown ? <DropDown language={props.language} /> : <></>}
-            </li>
-            
-            <li>
-                <NavLink className={highlight} to='/FAQ'>FAQ</NavLink>
-            </li>
-            <li>
-                <NavLink className={highlight} to='/About'>{translate('About', language)}</NavLink>
-            </li>
+            {navBarItems.map((item, index) => (
+                <li key={index}>
+                    {index === navBarItems.length - 1 ? (
+                        <button className='lang-changer' onClick={handleLanguageButtonClick}>{item}</button>
+                    ) : (
+                        <NavLink className={highlight} to={`/${item}`}>{item}</NavLink>
+                    )}
+                </li>
+            ))}
+            {displayDropDown && <DropDown language={language} onLanguageChange={onLanguageChange} />}
         </ul>
     );
 }
 
-
-
-//at some point we'll probably want an isLoggedIn boolean, and then conditionally render the profile pic using that
 function TopBannerThing(props) {
-
-    const language = props.language[0]
+    const { language } = props;
 
     return (
         <div className="top-banner-thing">
             <div className="title-cluster">
                 <h1 className='title'>Hornet Hangout</h1>
                 <div className="thing-below-main-title">
-                    <h2 className='sub-title'>{translate('Sacramento State Community Forum', language)}</h2>
+                    <h2 className='sub-title'>Sacramento State Community Forum</h2>
                     <img className='profile-pic' src={guestProfile} alt="profile pic"></img>
                 </div>
             </div>
@@ -97,13 +109,12 @@ function TopBannerThing(props) {
                 <img className='logo' src={hornetGuy} alt="little logo"></img>
                 <Link to='/LoginPage'>
                     <button className='login-button'>
-                        {translate("Login", language)}
+                        Login
                     </button>
                 </Link>
             </div>
         </div>
     );
-
 }
 
 export default MainPage;
