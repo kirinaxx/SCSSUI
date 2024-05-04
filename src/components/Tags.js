@@ -24,9 +24,16 @@ function Tags(props) {
         }
         SetTags(tags)
         console.log(tags)
-        getAllPostsByTagId(tags).then(res => {
-            props.setPosts(res.data);
-        });
+        if (tags.length > 0) {
+            getAllPostsByTagId(tags).then(res => {
+                props.setPosts(res.data);
+            });
+        }
+        else {
+            getAllPosts().then(res => {
+                props.setPosts(res.data);
+            })
+        }
       };
 
     return (
