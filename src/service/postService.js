@@ -10,6 +10,11 @@ export const getAllPostsByParentId = (parentId) => {
     return axios.get(baseUrl + "/byparent/" + parentId);
 }
 
+export const getAllPostsByTagId = (tagIds) => {
+    return axios.post(baseUrl + "/bytags", tagIds);
+}
+
+
 export const addPost = (post) => {
     return axios.post(baseUrl + "/addpost", {
         id: post.id,
@@ -17,7 +22,9 @@ export const addPost = (post) => {
         postOriginal: post.postOriginal,
         date: post.date,
         numberOfLikes: post.numberOfLikes,
-        parentId: post.parentId,
-        tagIds: post.tagIds
+        parentId: post.parentId
     });
+}
+export const addTagToPost = (postId, tagIds) => {
+    return axios.post(baseUrl + '/addPostTags/' +postId, tagIds);
 }

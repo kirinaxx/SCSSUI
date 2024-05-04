@@ -9,10 +9,12 @@ import './Home.css'
 import CreatePostButton from "./CreatePostButton";
 import { WithContext as ReactTags } from 'react-tag-input';
 import { getAllTags } from "../service/tagsService";
-import { addPost } from "../service/postService";
+import { addPost, addTagToPost, getAllPostsByTagId } from "../service/postService";
 import { getAllPosts } from "../service/postService";
 import { useEffect } from "react";
 import axios from "axios";
+import { useCallback } from "react";
+import Tags from "./Tags";
 
 function Home(props) {
 
@@ -20,41 +22,40 @@ function Home(props) {
     const [postTitle, setPostTitle] = useState("");
     const [postBody, setPostBody] = useState("");
 
-      
-      const KeyCodes = {
+
+    const KeyCodes = {
         comma: 188,
         enter: 13
-      };
-      
-      const delimiters = [KeyCodes.comma, KeyCodes.enter];
-      
-        const [tags, setTags] = useState([]);
-        const [tagsSuggestion, setTagsSuggestion] = useState([{id:0, text:''}]);
+    };
 
-       
-      
-        const handleDelete = i => {
-          setTags(tags.filter((tag, index) => index !== i));
-        };
-      
-        const handleAddition = tag => {
-            setTags([ tag])
-          setTags(tags.length > 0 ? [...tags, tag] : [tag]);
-        };
-      
-        const handleDrag = (tag, currPos, newPos) => {
-          const newTags = tags.slice();
-      
-          newTags.splice(currPos, 1);
-          newTags.splice(newPos, 0, tag);
-      
-          // re-render
-          setTags(newTags);
-        };
-      
-        const handleTagClick = index => {
-          console.log('The tag at index ' + index + ' was clicked');
-        };
+    const delimiters = [KeyCodes.comma, KeyCodes.enter];
+
+    const [tags, setTags] = useState([]);
+    const [tagsSuggestion, setTagsSuggestion] = useState([{ id: 0, text: '' }]);
+
+
+
+    const handleDelete = i => {
+        setTags(tags.filter((tag, index) => index !== i));
+    };
+
+    const handleAddition = tag => {
+        tags.push(tag);
+    };
+
+    const handleDrag = (tag, currPos, newPos) => {
+        const newTags = tags.slice();
+
+        newTags.splice(currPos, 1);
+        newTags.splice(newPos, 0, tag);
+
+        // re-render
+        setTags(newTags);
+    };
+
+    const handleTagClick = index => {
+        console.log('The tag at index ' + index + ' was clicked');
+    };
 
     const handleTitleChange = (event) => {
         setPostTitle(event.target.value);
@@ -66,33 +67,34 @@ function Home(props) {
     const CancelToken = axios.CancelToken;
     const cancelSource = React.useRef(null);
 
-        useEffect(() => {
-            cancelSource.current = CancelToken.source();
-            getAllPosts().then(res => {
-                res.data = res.data.filter(x => x.parentId == null);
-                handleDataFromChild(res.data);
-            })
-            return () => { cancelSource.current.cancel(); };
-        }, ["http://localhost:8080/api/posts/allposts"]);
-        useEffect(() => {
-            cancelSource.current = CancelToken.source();
-            getAllTags().then(res => {
-                res.data = res.data.map(x => {
-                    return { id: x.id.toString(), text: x.tag }
-                });
-                setTagsSuggestion(res.data);
-            })
-            return () => { cancelSource.current.cancel(); };
-        }, ["http://localhost:8080/api/posts/allposts"]);
-        // getAllPosts().then((res) => {
-        //     res.data = res.data.filter(x => x.parentId == null);
-        //     handleDataFromChild(res.data)
-        //     console.log("home get all posts");
-        //   });
-    
+
+    useEffect(() => {
+        cancelSource.current = CancelToken.source();
+        getAllPosts().then(res => {
+            res.data = res.data.filter(x => x.parentId == null);
+            handleDataFromChild(res.data);
+        })
+        return () => { cancelSource.current.cancel(); };
+    }, ["http://localhost:8080/api/posts/allposts"]);
+    useEffect(() => {
+        cancelSource.current = CancelToken.source();
+        getAllTags().then(res => {
+            res.data = res.data.map(x => {
+                return { id: x.id.toString(), text: x.tag }
+            });
+            setTagsSuggestion(res.data);
+        })
+        return () => { cancelSource.current.cancel(); };
+    }, ["http://localhost:8080/api/posts/allposts"]);
+    // getAllPosts().then((res) => {
+    //     res.data = res.data.filter(x => x.parentId == null);
+    //     handleDataFromChild(res.data)
+    //     console.log("home get all posts");
+    //   });
+
     function handleDataFromChild(data) {
         props.setPosts(data);
-      }
+    }
     const handleCancelPost = () => {
         // Reset post title and body
         setPostTitle("");
@@ -104,20 +106,30 @@ function Home(props) {
         // Reset post title and body
         //var tags = tags;
         const newPost = {
-            id: null, 
-            title: postTitle, 
+            id: null,
+            title: postTitle,
             postOriginal: postBody,
-            numberOfLikes: 0, 
+            numberOfLikes: 0,
             parentId: 0,
-            tagIds: []
+            tagIds: [1, 3]
         };
-        addPost(newPost).then(() => {
+        addPost(newPost).then((res) => {
             console.log(newPost);
+            console.log(res);
+            newPost.id = res.data.id;
+            addTagToPost(res.data.id, tags.map(x => {return x.id})).then(res => {
+                console.log(res);
+                props.posts.push(newPost);
+                handleDataFromChild(props.posts);
+            });
         })
 
         setPostTitle("");
         setPostBody("");
+        setTags([]);
     };
+   
+
 
     return (
         <body>
@@ -127,11 +139,11 @@ function Home(props) {
             <div style={{ width: "100%", display: "table" }}>
                 <div style={{ display: "table-row" }}>
                     <div className="GroupBar" style={{ width: "20%", display: "table-cell" }}>
-                        <p>I *think* the groups tab will go here in the future maybe? idk how we are gonna style it</p>
+                      <Tags setPosts={handleDataFromChild} tagsSuggestion={tagsSuggestion}></Tags>
                     </div>
                     <SearchBar setPosts={handleDataFromChild} />
-                    <div style={{  marginLeft: "22%", width: "78%", display: "table-cell" }}>
-                       <div className="posts-container" style={{display: "table-row"}}>
+                    <div style={{ marginLeft: "22%", width: "78%", display: "table-cell" }}>
+                        <div className="posts-container" style={{ display: "table-row" }}>
                             <div className="empty-post">
                                 <div className="post-padding">
                                     <div>
@@ -151,35 +163,35 @@ function Home(props) {
                                             className="description"
                                         />
                                     </div>
-                                    <div style={{ textAlign: "left", marginTop: "120px"}} class="tags">
-                                    <ReactTags
-                                        tags={tags}
-                                        suggestions={tagsSuggestion}
-                                        delimiters={delimiters}
-                                        handleDelete={handleDelete}
-                                        handleAddition={handleAddition}
-                                        handleDrag={handleDrag}
-                                        handleTagClick={handleTagClick}
-                                        inputFieldPosition="top"
-                                        autocomplete
-                                    />
+                                    <div style={{ textAlign: "left", marginTop: "120px" }} class="tags">
+                                        <ReactTags
+                                            tags={tags}
+                                            suggestions={tagsSuggestion}
+                                            delimiters={delimiters}
+                                            handleDelete={handleDelete}
+                                            handleAddition={handleAddition}
+                                            handleDrag={handleDrag}
+                                            handleTagClick={handleTagClick}
+                                            inputFieldPosition="top"
+                                            autocomplete
+                                        />
                                     </div>
                                     <div className="stuff-below-home">
-                                    
+
                                         <button onClick={handleCancelPost}>Cancel</button>
                                         <button onClick={handlePostSubmit}>Submit</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
-                <div style={{ display: "table-row" }}>
-                    {/* <CreatePostButton children={"Create New Post"} onClick={() => {}}></CreatePostButton> */}
-                    <PostList posts={props.posts} />
 
+                        <div style={{ display: "table-row" }}>
+                            {/* <CreatePostButton children={"Create New Post"} onClick={() => {}}></CreatePostButton> */}
+                            <PostList posts={props.posts} />
+
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
             </div>
         </body>
     );
@@ -205,5 +217,6 @@ function PostList(props) {
 function getHomePagePosts(posts) {
     return posts.sort((a, b) => b.likes - a.likes);
 }
+
 
 export default Home;

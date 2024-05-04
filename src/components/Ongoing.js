@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Post from "./Post";
 import CreatePostButton from "./CreatePostButton";
 import "./post.css";
-import { addPost } from "../service/postService";
+import { addPost, addTagToPost } from "../service/postService";
 
 function Ongoing(props) {
     const language = props.language[0];
@@ -39,12 +39,13 @@ function Ongoing(props) {
             title: postTitle, 
             postOriginal: postBody,
             numberOfLikes: 0, 
-            parentId: 0,
-            tagIds: [1,3]
+            parentId: 0
         };
-        addPost(newPost).then(() => {
-            console.log(newPost);
+        addPost(newPost).then((res) => {
+            newPost.id = res.data.id;
+            addTagToPost(newPost.id, [1]).then(res => {});
         })
+
 
         setPostTitle("");
         setPostBody("");
