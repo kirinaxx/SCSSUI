@@ -11,19 +11,17 @@ const baseUrl = "http://localhost:8080/api/translation"
     if (lang === 'English') {
         return(input)
     } else {
-        var output = ""
+        var output = null
         const target = getLanguageCode(lang)
-        const response = axios.get(baseUrl + "/" + target + "/" + input);
-        //.then( (response) => {
-           // debugger;
-           response.then(res => {
-            output= res.data
-            //output = response.data;
-            console.log(output);
-            return(output);
-            
-           });
+        axios.get(baseUrl + "/" + target + "/" + input).then( response => {
+            output = response.data
+            console.log(output)
+        })
+        while (output === null ) {
+            console.log('WAITING')
+        }
         console.log("please be in the language" + output)
+        return (output);
     }
 }
 
