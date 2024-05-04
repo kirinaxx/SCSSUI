@@ -7,6 +7,8 @@ import translate from './TranslationStation';
 import React from "react";
 import ListOfLanguages from './ListOfLanguages';
 
+const [thingToTriggerReRender, SetReRender] = useState(true);
+
 //MainPage has a bunch of child pages (eg. 'home', 'FAQ', etc.), the <Outlet /> is a standin for whatever current child page we are on
 function MainPage(props) {
     return (
